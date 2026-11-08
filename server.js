@@ -28,8 +28,7 @@ if (process.env.NODE_ENV === "production" && process.env.ADMIN_PASSWORD === "Cha
   process.exit(1);
 }
 
-const db = new Database(path.join(DATA, "nayr.sqlite"));
-db.pragma("journal_mode = WAL");
+const db = new Database.Database(path.join(DATA, "nayr.sqlite"));
 db.exec(`
 CREATE TABLE IF NOT EXISTS admins (id INTEGER PRIMARY KEY, username TEXT UNIQUE NOT NULL, password_hash TEXT NOT NULL);
 CREATE TABLE IF NOT EXISTS products (
