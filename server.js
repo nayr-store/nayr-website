@@ -29,10 +29,10 @@ const db = {
 app.use(helmet({ contentSecurityPolicy: false }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(ROOT, "public")));
+app.use(express.static(path.join(ROOT)));
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(ROOT, "public", "index.html"));
+    res.sendFile(path.join(ROOT,"index.html"));
 });
 
 app.listen(PORT, () => {
